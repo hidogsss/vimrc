@@ -1,0 +1,77 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Valloric/YouCompleteMe'
+
+" automatically start plugin when start vim
+autocmd vimenter * NERDTree
+" YCM configuration
+" ～/.vimrc
+"
+let g:ycm_python_binary_path = '/usr/bin/python3'
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+let g:ycm_seed_identifiers_with_syntax = 1
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just
+" :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to
+" auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               Common settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax on        " syntax highlight
+set number       " show line numbers
+colorscheme molokai    " use theme
+set lines=35 columns=120    " setting window size when start 
+set guioptions-=T             " no graphic buttons
+set guifont=Monospace\ 11 
+autocmd InsertLeave * se nocul  " 用浅色高亮当前行  
+autocmd InsertEnter * se cul    " 用浅色高亮当前行 
+set noeb                        " setting no error sound
+set vb t_vb=                    " setting no error sound
+au GuiEnter * set t_vb=         " setting no error screen blink
+set ruler                       " 显示标尺
+set laststatus=1                " setting show status bar
+set nowrap                      " setting no wrap
+
+" splits navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 TAB setting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set tabstop=4       " The width of a TAB is set to 4.
+                    " Still it is a \t. It is just that
+        		    " Vim will interpret it to be having
+		            " a width of 4.
+set shiftwidth=4    " Indents will have a width of 4
+set softtabstop=4   " Sets the number of columns for a TAB
+set expandtab       " Expand TABs to spaces
+
